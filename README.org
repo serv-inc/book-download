@@ -1,0 +1,17 @@
+* book-download
+Download web novel pages from readnovelfull.com .
+** Steps
+1. find book, e.g. https://readnovelfull.com/https://readnovelfull.com/martial-peak-v3.html
+2. go to any chapter: https://readnovelfull.com/martial-peak/chapter-5909-the-end-has-come.html
+3. download some pages:
+#+begin_src python
+  p = SinglePage('/martial-peak/chapter-5909-the-end-has-come.html')
+  p.load()
+  p.save()
+  p2 = do(p, 200)
+#+end_src
+saves the content of the given and the following 200 pages to =/tmp/martial-peak/=.
+4. inside the file, to go to the next chapter, you can use the JS-console:
+#+begin_src js
+  document.location = document.querySelector('#next_chap').href.split('/')[4]
+#+end_src
