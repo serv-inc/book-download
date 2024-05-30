@@ -32,10 +32,10 @@ class SinglePage:
 
     def next_page(self, reload=5):
         """@return the following page"""
-        assert self.nextpath, "no next path in " + self.text
         while reload > 0 and not self.nextpath:
             self.load()
             reload -= 1
+        assert self.nextpath, "no next path in " + self.text
         return SinglePage(self.nextpath)
 
     def load(self):
